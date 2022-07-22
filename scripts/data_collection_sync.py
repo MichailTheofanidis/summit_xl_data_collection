@@ -43,12 +43,12 @@ if __name__ == '__main__':
         today = date.today()
         now = datetime.now()
 
-        time = now.strftime("%H:%M:%S")
+        time = now.strftime("%H-%M-%S")
         day = today.strftime("%m-%d-%y")
 
         rospy.init_node('data_collection')
 
-        bag = rosbag.Bag('/home/sneh/Data/Date:' + day+'_Time:' + time + '.bag', 'w')
+        bag = rosbag.Bag('/media/sneh/Heracleia/Robot_Data/Data-' + day+'-Time-' + time + '.bag', 'w')
 
         img_sub = message_filters.Subscriber('/robot/front_rgbd_camera/rgb/image_raw', Image)
         joint_sub = message_filters.Subscriber('/robot/joint_states', JointState)
